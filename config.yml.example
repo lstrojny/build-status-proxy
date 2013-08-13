@@ -1,0 +1,9 @@
+sources:
+    jenkins:
+        reader: default
+        url: https://my-jenkins.org/cc.xml
+        username: user
+        password: pass
+    symfony_travis:
+        reader: travis
+        username: symfony

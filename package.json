@@ -1,0 +1,21 @@
+{
+  "name": "build-status-proxy",
+  "version": "0.0.1",
+  "description": "A proxy application to unify build statuses from various build systems",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": "",
+  "author": "Lars Strojny <lars@strojny.net>",
+  "license": "BSD",
+  "dependencies": {
+    "q": "*",
+    "q-io": "*",
+    "js-yaml": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "jshint": "*"
+  }
+}
