@@ -1,6 +1,6 @@
 var HTTP = require('q-io/http');
 
-module.exports = function(params) {
+module.exports = function (params) {
   var req;
 
   if (!params.url) {

@@ -11,5 +11,7 @@
   "quotmark": "single",
   "trailing": true,
   "maxlen": 120,
-  "node": true
+  "node": true,
+  "onevar": true,
+  "white": true
 }
