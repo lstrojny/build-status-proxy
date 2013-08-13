@@ -2,8 +2,7 @@ require('js-yaml');
 
 var http = require('http'),
   Q = require('q'),
-  Merger = require('./merger'),
-  merger = new Merger(),
+  merger = new (require('./merger'))(),
   config = require('../config.yml');
 
 (http.createServer(function (req, resp) {
