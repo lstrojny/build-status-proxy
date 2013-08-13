@@ -14,6 +14,6 @@ module.exports = function (params) {
   }
 
   return HTTP.read(req).then(function (resp) {
-    return [resp + ''];
+    return [resp.toString()];
   });
 };

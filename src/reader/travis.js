@@ -7,9 +7,9 @@ module.exports = function (params) {
   }
 
   return HTTP.read('https://api.travis-ci.org/repos/?owner_name=' + params.username).then(function (repos) {
-    return Q.all(JSON.parse(repos + '').map(function (repo) {
+    return Q.all(JSON.parse(repos.toString()).map(function (repo) {
       return HTTP.read('https://api.travis-ci.org/repositories/' + repo.slug + '/cc.xml').then(function (resp) {
-        return resp + '';
+        return resp.toString();
       });
     }));
   });

@@ -34,6 +34,9 @@ describe('Merger', function () {
         merger.merge('', '')
       );
     });
+    it('two undefined build results', function() {
+      assert.equal('<Projects></Projects>', merger.merge(undefined, undefined));
+    });
     it('result containing newlines', function () {
       assert.equal(
         "<Projects>\n<Project name=\"one\"/></Projects>",

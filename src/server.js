@@ -2,7 +2,7 @@ require('js-yaml');
 
 var http = require('http'),
   Q = require('q'),
-  merger = new require('./merger'),
+  merger = new (require('./merger')),
   config = require('../config.yml');
 
 (http.createServer(function (req, resp) {
@@ -27,7 +27,8 @@ var http = require('http'),
     .then(function (xml) {
       resp.writeHead(200, {'Content-Type': 'text/xml'});
       resp.end(xml);
-    }, function () {
+    }, function (err) {
+      console.log('ERR: ' + err);
       resp.writeHead(200, {'Content-Type': 'text/xml'});
       resp.end('<Projects/>');
     });
