@@ -4,6 +4,8 @@
   "description": "A proxy application to unify build statuses from various build systems",
   "main": "index.js",
   "scripts": {
+    "start": "node src/server.js",
+    "restart": "node src/server.js",
     "test": "mocha",
     "pretest": "jshint --config jshint.json src/ test/"
   },
