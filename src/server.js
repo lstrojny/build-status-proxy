@@ -3,10 +3,12 @@ require('js-yaml');
 var http = require('http'),
   Q = require('q'),
   merger = new (require('./merger'))(),
-  config = require('../config.yml');
+  config = require('../config.yml'),
+  microtime = function() {return new Date().getTime();};
 
 (http.createServer(function (req, resp) {
-  var promises = [];
+  var promises = [],
+    start = microtime();
 
   Object.keys(config.sources || {}).forEach(function (key) {
     var reader = require('./reader/' + config.sources[key].reader);
@@ -21,7 +23,7 @@ var http = require('http'),
       console.log('ERR ' + err);
     })
     .then(function (payloads) {
-      console.log('Fetched ' + payloads.length + ' resources');
+      console.log('Fetched ' + payloads.length + ' resources in ' + (microtime() - start) + ' ms');
       return payloads.reduce(merger.merge, '');
     })
     .then(function (xml) {
