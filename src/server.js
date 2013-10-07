@@ -4,7 +4,7 @@ var http = require('http'),
   Q = require('q'),
   merger = new (require('./merger'))(),
   config = require('../config.yml'),
-  microtime = function() {return new Date().getTime();};
+  microtime = function () { return new Date().getTime(); };
 
 (http.createServer(function (req, resp) {
   var promises = [],
